@@ -1,6 +1,8 @@
 # AQAIO
 Air Quality All-In-One
 
+![AQAIO](./img/aqaio-photo.png)
+
 ## What is it?
 A simple air quality monitor with a e-ink display, built with off the shelf parts
 
