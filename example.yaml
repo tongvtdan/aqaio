@@ -1,17 +1,18 @@
 # AQAIO - Air Quality All-In-One
-# Example ESPHome configuration for ESP32-C3 + SEN66 + e-paper display
+# Example ESPHome configuration for XIAO ESP32-C6 + SEN66 + e-paper display
+# Requires ESPHome 2025.12 or newer for the seeed_xiao_esp32c6 board definition.
 #
 # Usage:
 #   1. Copy this file to your ESPHome config directory
 #   2. Update the external_components URL to your repo
-#   3. Flash to your ESP32-C3
+#   3. Flash to your XIAO ESP32-C6
 
 esphome:
   name: aqaio
   friendly_name: "AQAIO Air Quality"
 
 esp32:
-  board: esp32-c3-devkitm-1
+  board: seeed_xiao_esp32c6
   framework:
     type: arduino
 
@@ -46,16 +47,16 @@ time:
 aqaio:
   update_interval: 60s
   time_id: ntp_time
-  # I2C pins (SEN66)
-  i2c_sda: 10
-  i2c_scl: 9
+  # I2C pins (SEN66). Keep D4/D5 here because D10 is e-paper MOSI.
+  i2c_sda: 22 # XIAO D4
+  i2c_scl: 23 # XIAO D5
   # SPI pins (e-paper GDEH0154D67)
-  epd_mosi: 7
-  epd_sclk: 6
-  epd_cs: 5
-  epd_dc: 4
-  epd_rst: 3
-  epd_busy: 2
+  epd_mosi: 18 # XIAO D10 / MOSI
+  epd_sclk: 19 # XIAO D8 / SCK
+  epd_cs: 21   # XIAO D3
+  epd_dc: 2    # XIAO D2
+  epd_rst: 1   # XIAO D1
+  epd_busy: 0  # XIAO D0
   # Display settings
   display_rotation: 0   # 0=vertical_up, 1=horizontal_left, 2=vertical_down, 3=horizontal_right
   use_fahrenheit: false

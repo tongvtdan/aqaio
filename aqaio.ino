@@ -1,15 +1,15 @@
 /*
  * AQAIO - Air Quality All-In-One
- * ESP32-C3 + SEN66 (serial terminal output)
+ * Seeed Studio XIAO ESP32-C6 + SEN66 (serial terminal output)
  *
  * Reads all SEN66 environmental sensor data over I2C and
  * prints readings to the serial terminal.
  *
  * Wiring:
- * | Function | ESP32-C3 Pin | Component |
- * |----------|:------------:|-----------|
- * | I2C SDA  |      10      | SEN66     |
- * | I2C SCL  |       9      | SEN66     |
+ * | Function | XIAO Pin | GPIO | Component |
+ * |----------|:--------:|:----:|-----------|
+ * | I2C SDA  |   D10    |  18  | SEN66     |
+ * | I2C SCL  |   D9     |  20  | SEN66     |
  */
 
 #include <Wire.h>
@@ -31,8 +31,8 @@
 
 // ─── Pin Definitions ────────────────────────────────────────────────────────
 
-#define I2C_SDA 10
-#define I2C_SCL 9
+#define I2C_SDA 18  // XIAO D10 / SDA
+#define I2C_SCL 20  // XIAO D9 / SCL
 
 // ─── Globals ────────────────────────────────────────────────────────────────
 
@@ -162,7 +162,7 @@ void printSensorData() {
 
 void setup() {
     Serial.begin(115200);
-    delay(500); // Allow USB CDC to connect on ESP32-C3.
+    delay(500); // Allow USB CDC to connect on the XIAO ESP32-C6.
 
     Serial.println(F("AQAIO - Air Quality All-In-One"));
     Serial.println(F("Terminal output mode (no display)"));

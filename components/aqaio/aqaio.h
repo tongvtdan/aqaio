@@ -65,14 +65,14 @@ class AQAIOComponent : public PollingComponent {
   const char *temp_unit_str_();
 
   // Pin config
-  int i2c_sda_ = 10;
-  int i2c_scl_ = 9;
-  int epd_mosi_ = 7;
-  int epd_sclk_ = 6;
-  int epd_cs_ = 5;
-  int epd_dc_ = 4;
-  int epd_rst_ = 3;
-  int epd_busy_ = 2;
+  int i2c_sda_ = 22;   // XIAO ESP32-C6 D4
+  int i2c_scl_ = 23;   // XIAO ESP32-C6 D5
+  int epd_mosi_ = 18;  // XIAO ESP32-C6 D10
+  int epd_sclk_ = 19;  // XIAO ESP32-C6 D8
+  int epd_cs_ = 21;    // XIAO ESP32-C6 D3
+  int epd_dc_ = 2;     // XIAO ESP32-C6 D2
+  int epd_rst_ = 1;    // XIAO ESP32-C6 D1
+  int epd_busy_ = 0;   // XIAO ESP32-C6 D0
 
   // Settings
   int display_rotation_ = 0;
