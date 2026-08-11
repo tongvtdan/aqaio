@@ -37,6 +37,14 @@ The SEN66 uses I2C address `0x6B` in the sketch. The C6 supports remapped I2C on
 
 The sketch spends about 10 seconds warming up the sensor before reporting readings.
 
+While the sketch is running, send one of these commands followed by Enter:
+
+- `status` or `s` prints the AQAIO state, SEN66 status flags, uptime, and age of the last successful reading.
+- `read` or `r` requests an immediate reading.
+- `help` or `?` prints the command list.
+
+The status output reports `just now` immediately after a new reading. Query `status` later to see the real elapsed time instead of the old `0s ago` value.
+
 ## ESPHome e-paper wiring
 
 The ESPHome example keeps I2C on D4/D5 because D10 is reserved for the e-paper MOSI line in that profile:
